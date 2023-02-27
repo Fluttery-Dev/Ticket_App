@@ -73,8 +73,8 @@ class TicketView extends StatelessWidget {
             color: const Color(0xFFF37B67),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                const SizedBox(
+              children: const [
+                SizedBox(
                   height: 20,
                   width: 10,
                   child: DecoratedBox(
@@ -89,29 +89,14 @@ class TicketView extends StatelessWidget {
                 ),
                 Expanded(
                   child: Padding(
-                    padding: const EdgeInsets.all(12),
-                    child: LayoutBuilder(
-                      builder: (ctx, constraint) {
-                        return Flex(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          mainAxisSize: MainAxisSize.max,
-                          direction: Axis.horizontal,
-                          children: List.generate(
-                            (constraint.constrainWidth() / 15).floor(),
-                            (index) => const SizedBox(
-                              height: 1,
-                              width: 5,
-                              child: DecoratedBox(
-                                  decoration:
-                                      BoxDecoration(color: Colors.white)),
-                            ),
-                          ),
-                        );
-                      },
+                    padding: EdgeInsets.all(12),
+                    child: DottedLines(
+                      width: 5,
+                      space: 15,
                     ),
                   ),
                 ),
-                const SizedBox(
+                SizedBox(
                   height: 20,
                   width: 10,
                   child: DecoratedBox(
@@ -193,6 +178,34 @@ class TicketView extends StatelessWidget {
           ),
         ],
       ),
+    );
+  }
+}
+
+class DottedLines extends StatelessWidget {
+  final double width;
+  final double space;
+  const DottedLines({super.key, required this.width, required this.space});
+
+  @override
+  Widget build(BuildContext context) {
+    return LayoutBuilder(
+      builder: (ctx, constraint) {
+        return Flex(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          mainAxisSize: MainAxisSize.max,
+          direction: Axis.horizontal,
+          children: List.generate(
+            (constraint.constrainWidth() / space).floor(),
+            (index) => SizedBox(
+              height: 1,
+              width: width,
+              child: const DecoratedBox(
+                  decoration: BoxDecoration(color: Colors.white)),
+            ),
+          ),
+        );
+      },
     );
   }
 }

@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:ticket_booking/util/app_layout.dart';
+
+import 'package:ticket_booking/widgets/ticket_view.dart';
 
 class PlaneWidget extends StatelessWidget {
   const PlaneWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final maxWidth = AppLayout.getSize(context).width - 50;
     return Row(
       mainAxisSize: MainAxisSize.max,
       children: [
@@ -21,23 +21,9 @@ class PlaneWidget extends StatelessWidget {
           width: 100, //TODO Have to make this Dynamic
           child: Stack(
             children: [
-              SizedBox(
+              const SizedBox(
                 height: 24,
-                child: Flex(
-                  direction: Axis.horizontal,
-                  mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: List.generate(
-                    15,
-                    (index) => const SizedBox(
-                      height: 1,
-                      width: 3,
-                      child: DecoratedBox(
-                        decoration: BoxDecoration(color: Colors.white),
-                      ),
-                    ),
-                  ),
-                ),
+                child: DottedLines(width: 3, space: 6),
               ),
               Center(
                 child: Transform.rotate(
