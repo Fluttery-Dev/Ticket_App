@@ -1,5 +1,6 @@
 import 'package:fluentui_icons/fluentui_icons.dart';
 import 'package:flutter/material.dart';
+import 'package:ticket_booking/util/app_layout.dart';
 import 'package:ticket_booking/util/app_styles.dart';
 import 'package:gap/gap.dart';
 import 'package:ticket_booking/util/app_util.dart';
@@ -16,10 +17,10 @@ class HomeScreen extends StatelessWidget {
       body: ListView(
         children: [
           Container(
-            padding: const EdgeInsets.symmetric(horizontal: 20),
+            padding: EdgeInsets.symmetric(horizontal: AppLayout.getWidth(20)),
             child: Column(
               children: [
-                const Gap(40),
+                Gap(AppLayout.getHeight(40)),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -30,7 +31,7 @@ class HomeScreen extends StatelessWidget {
                           "Good Morning",
                           style: Styles.headLineStyle3,
                         ),
-                        const Gap(5),
+                        Gap(AppLayout.getHeight(5)),
                         Text(
                           "Book Tickets",
                           style: Styles.headLineStyle1,
@@ -38,8 +39,8 @@ class HomeScreen extends StatelessWidget {
                       ],
                     ),
                     Container(
-                      height: 50,
-                      width: 50,
+                      height: AppLayout.getHeight(50),
+                      width: AppLayout.getWidth(50),
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(10),
                           image: const DecorationImage(
@@ -48,7 +49,7 @@ class HomeScreen extends StatelessWidget {
                     )
                   ],
                 ),
-                const Gap(20),
+                Gap(AppLayout.getHeight(20)),
                 Container(
                   padding: const EdgeInsets.all(12),
                   decoration: BoxDecoration(

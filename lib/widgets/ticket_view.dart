@@ -11,15 +11,16 @@ class TicketView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final size = AppLayout.getSize(context);
     return SizedBox(
-      width: size.width * 0.85,
-      height: 200,
+      width: AppLayout.getScreenWidth() * 0.85,
+      height: AppLayout.getHeight(200),
       child: Column(
         children: [
           Container(
-            margin: const EdgeInsets.only(left: 20),
-            padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 15),
+            margin: EdgeInsets.only(left: AppLayout.getWidth(20)),
+            padding: EdgeInsets.symmetric(
+                vertical: AppLayout.getHeight(20),
+                horizontal: AppLayout.getWidth(15)),
             decoration: const BoxDecoration(
               color: Color(0xFF526799),
               borderRadius: BorderRadius.only(
@@ -71,15 +72,15 @@ class TicketView extends StatelessWidget {
             ),
           ),
           Container(
-            margin: const EdgeInsets.only(left: 20),
+            margin: EdgeInsets.only(left: AppLayout.getWidth(20)),
             color: const Color(0xFFF37B67),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: const [
+              children: [
                 SizedBox(
-                  height: 20,
-                  width: 10,
-                  child: DecoratedBox(
+                  height: AppLayout.getHeight(20),
+                  width: AppLayout.getWidth(10),
+                  child: const DecoratedBox(
                     decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.only(
@@ -89,7 +90,7 @@ class TicketView extends StatelessWidget {
                     ),
                   ),
                 ),
-                Expanded(
+                const Expanded(
                   child: Padding(
                     padding: EdgeInsets.all(12),
                     child: DottedLines(
@@ -99,9 +100,9 @@ class TicketView extends StatelessWidget {
                   ),
                 ),
                 SizedBox(
-                  height: 20,
-                  width: 10,
-                  child: DecoratedBox(
+                  height: AppLayout.getHeight(20),
+                  width: AppLayout.getWidth(10),
+                  child: const DecoratedBox(
                     decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.only(
@@ -115,8 +116,10 @@ class TicketView extends StatelessWidget {
             ),
           ),
           Container(
-            margin: const EdgeInsets.only(left: 20),
-            padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 15),
+            margin: EdgeInsets.only(left: AppLayout.getWidth(20)),
+            padding: EdgeInsets.symmetric(
+                vertical: AppLayout.getHeight(20),
+                horizontal: AppLayout.getWidth(15)),
             decoration: BoxDecoration(
               color: Styles.orangeColor,
               borderRadius: const BorderRadius.only(
@@ -135,7 +138,7 @@ class TicketView extends StatelessWidget {
                       style:
                           Styles.headLineStyle3.copyWith(color: Colors.white),
                     ),
-                    const Gap(5),
+                    Gap(AppLayout.getHeight(5)),
                     Text(
                       "Date",
                       style:
@@ -151,7 +154,7 @@ class TicketView extends StatelessWidget {
                       style:
                           Styles.headLineStyle3.copyWith(color: Colors.white),
                     ),
-                    const Gap(5),
+                    Gap(AppLayout.getHeight(10)),
                     Text(
                       "Departure Time",
                       style:
@@ -167,7 +170,7 @@ class TicketView extends StatelessWidget {
                       style:
                           Styles.headLineStyle3.copyWith(color: Colors.white),
                     ),
-                    const Gap(5),
+                    Gap(AppLayout.getHeight(10)),
                     Text(
                       "Number",
                       style:

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../util/app_layout.dart';
 
 class DottedLines extends StatelessWidget {
   final double width;
@@ -16,8 +17,8 @@ class DottedLines extends StatelessWidget {
           children: List.generate(
             (constraint.constrainWidth() / space).floor(),
             (index) => SizedBox(
-              height: 1,
-              width: width,
+              height: AppLayout.getHeight(1),
+              width: AppLayout.getWidth(width),
               child: const DecoratedBox(
                   decoration: BoxDecoration(color: Colors.white)),
             ),

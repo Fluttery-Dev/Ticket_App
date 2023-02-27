@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:ticket_booking/widgets/dotted_lines.dart';
+import '../util/app_layout.dart';
 
 class PlaneWidget extends StatelessWidget {
   const PlaneWidget({super.key});
@@ -18,12 +19,12 @@ class PlaneWidget extends StatelessWidget {
           ),
         ),
         SizedBox(
-          width: 100, //TODO Have to make this Dynamic
+          width: AppLayout.getWidth(100), //TODO Have to make this Dynamic
           child: Stack(
             children: [
-              const SizedBox(
-                height: 24,
-                child: DottedLines(width: 3, space: 6),
+              SizedBox(
+                height: AppLayout.getHeight(24),
+                child: const DottedLines(width: 3, space: 6),
               ),
               Center(
                 child: Transform.rotate(
