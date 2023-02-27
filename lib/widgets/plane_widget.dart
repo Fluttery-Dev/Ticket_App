@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:ticket_booking/widgets/ticket_view.dart';
+import 'package:ticket_booking/widgets/dotted_lines.dart';
 
 class PlaneWidget extends StatelessWidget {
   const PlaneWidget({super.key});
