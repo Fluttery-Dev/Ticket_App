@@ -30,20 +30,26 @@ class TicketView extends StatelessWidget {
             ),
             child: Column(
               children: [
-                Flex(
-                  direction: Axis.horizontal,
+                Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text(
-                      ticket['from']['code'],
-                      style:
-                          Styles.headLineStyle3.copyWith(color: Colors.white),
+                    Flexible(
+                      flex: 1,
+                      child: Text(
+                        ticket['from']['code'],
+                        style:
+                            Styles.headLineStyle3.copyWith(color: Colors.white),
+                      ),
                     ),
-                    const PlaneWidget(),
-                    Text(
-                      ticket['to']['code'],
-                      style:
-                          Styles.headLineStyle3.copyWith(color: Colors.white),
+                    const Flexible(
+                        flex: 1, child: PlaneWidget(), fit: FlexFit.tight),
+                    Flexible(
+                      flex: 1,
+                      child: Text(
+                        ticket['to']['code'],
+                        style:
+                            Styles.headLineStyle3.copyWith(color: Colors.white),
+                      ),
                     ),
                   ],
                 ),
