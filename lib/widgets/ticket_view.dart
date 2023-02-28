@@ -7,7 +7,8 @@ import './dotted_lines.dart';
 
 class TicketView extends StatelessWidget {
   final Map<String, dynamic> ticket;
-  const TicketView({super.key, required this.ticket});
+  final bool isColored;
+  const TicketView({super.key, required this.ticket, this.isColored = true});
 
   @override
   Widget build(BuildContext context) {
@@ -21,9 +22,9 @@ class TicketView extends StatelessWidget {
             padding: EdgeInsets.symmetric(
                 vertical: AppLayout.getHeight(20),
                 horizontal: AppLayout.getWidth(15)),
-            decoration: const BoxDecoration(
-              color: Color(0xFF526799),
-              borderRadius: BorderRadius.only(
+            decoration: BoxDecoration(
+              color: isColored ? const Color(0xFF526799) : Colors.white,
+              borderRadius: const BorderRadius.only(
                 topLeft: Radius.circular(20),
                 topRight: Radius.circular(20),
               ),
@@ -37,18 +38,28 @@ class TicketView extends StatelessWidget {
                       flex: 1,
                       child: Text(
                         ticket['from']['code'],
-                        style:
-                            Styles.headLineStyle3.copyWith(color: Colors.white),
+                        style: isColored
+                            ? Styles.headLineStyle3
+                                .copyWith(color: Colors.white)
+                            : Styles.headLineStyle3
+                                .copyWith(color: Colors.black),
                       ),
                     ),
-                    const Flexible(
-                        flex: 1, child: PlaneWidget(), fit: FlexFit.tight),
+                    Flexible(
+                        flex: 1,
+                        child: PlaneWidget(
+                            color:
+                                isColored ? Colors.white : Color(0xFF8ACCF7)),
+                        fit: FlexFit.tight),
                     Flexible(
                       flex: 1,
                       child: Text(
                         ticket['to']['code'],
-                        style:
-                            Styles.headLineStyle3.copyWith(color: Colors.white),
+                        style: isColored
+                            ? Styles.headLineStyle3
+                                .copyWith(color: Colors.white)
+                            : Styles.headLineStyle3
+                                .copyWith(color: Colors.black),
                       ),
                     ),
                   ],
@@ -59,18 +70,21 @@ class TicketView extends StatelessWidget {
                   children: [
                     Text(
                       ticket['from']['name'],
-                      style:
-                          Styles.headLineStyle4.copyWith(color: Colors.white),
+                      style: isColored
+                          ? Styles.headLineStyle4.copyWith(color: Colors.white)
+                          : Styles.headLineStyle4,
                     ),
                     Text(
                       ticket['flying_time'],
-                      style:
-                          Styles.headLineStyle3.copyWith(color: Colors.white),
+                      style: isColored
+                          ? Styles.headLineStyle3.copyWith(color: Colors.white)
+                          : Styles.headLineStyle3,
                     ),
                     Text(
                       ticket['to']['name'],
-                      style:
-                          Styles.headLineStyle4.copyWith(color: Colors.white),
+                      style: isColored
+                          ? Styles.headLineStyle4.copyWith(color: Colors.white)
+                          : Styles.headLineStyle4,
                     ),
                   ],
                 )
@@ -79,7 +93,7 @@ class TicketView extends StatelessWidget {
           ),
           Container(
             margin: EdgeInsets.only(left: AppLayout.getWidth(20)),
-            color: const Color(0xFFF37B67),
+            color: isColored ? const Color(0xFFF37B67) : Colors.white,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -96,12 +110,13 @@ class TicketView extends StatelessWidget {
                     ),
                   ),
                 ),
-                const Expanded(
+                Expanded(
                   child: Padding(
-                    padding: EdgeInsets.all(12),
+                    padding: const EdgeInsets.all(12),
                     child: DottedLines(
                       width: 5,
                       space: 15,
+                      color: isColored ? Colors.white : Colors.grey,
                     ),
                   ),
                 ),
@@ -127,7 +142,7 @@ class TicketView extends StatelessWidget {
                 vertical: AppLayout.getHeight(20),
                 horizontal: AppLayout.getWidth(15)),
             decoration: BoxDecoration(
-              color: Styles.orangeColor,
+              color: isColored ? Styles.orangeColor : Colors.white,
               borderRadius: const BorderRadius.only(
                 bottomLeft: Radius.circular(20),
                 bottomRight: Radius.circular(20),
@@ -141,14 +156,16 @@ class TicketView extends StatelessWidget {
                   children: [
                     Text(
                       ticket['date'],
-                      style:
-                          Styles.headLineStyle3.copyWith(color: Colors.white),
+                      style: isColored
+                          ? Styles.headLineStyle3.copyWith(color: Colors.white)
+                          : Styles.headLineStyle3.copyWith(color: Colors.black),
                     ),
                     Gap(AppLayout.getHeight(5)),
                     Text(
                       "Date",
-                      style:
-                          Styles.headLineStyle4.copyWith(color: Colors.white),
+                      style: isColored
+                          ? Styles.headLineStyle4.copyWith(color: Colors.white)
+                          : Styles.headLineStyle4,
                     ),
                   ],
                 ),
@@ -157,14 +174,16 @@ class TicketView extends StatelessWidget {
                   children: [
                     Text(
                       ticket['departure_time'],
-                      style:
-                          Styles.headLineStyle3.copyWith(color: Colors.white),
+                      style: isColored
+                          ? Styles.headLineStyle3.copyWith(color: Colors.white)
+                          : Styles.headLineStyle3.copyWith(color: Colors.black),
                     ),
                     Gap(AppLayout.getHeight(10)),
                     Text(
                       "Departure Time",
-                      style:
-                          Styles.headLineStyle4.copyWith(color: Colors.white),
+                      style: isColored
+                          ? Styles.headLineStyle4.copyWith(color: Colors.white)
+                          : Styles.headLineStyle4,
                     ),
                   ],
                 ),
@@ -173,14 +192,16 @@ class TicketView extends StatelessWidget {
                   children: [
                     Text(
                       ticket['number'].toString(),
-                      style:
-                          Styles.headLineStyle3.copyWith(color: Colors.white),
+                      style: isColored
+                          ? Styles.headLineStyle3.copyWith(color: Colors.white)
+                          : Styles.headLineStyle3.copyWith(color: Colors.black),
                     ),
                     Gap(AppLayout.getHeight(10)),
                     Text(
                       "Number",
-                      style:
-                          Styles.headLineStyle4.copyWith(color: Colors.white),
+                      style: isColored
+                          ? Styles.headLineStyle4.copyWith(color: Colors.white)
+                          : Styles.headLineStyle4,
                     ),
                   ],
                 ),

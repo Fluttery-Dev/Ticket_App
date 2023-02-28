@@ -4,7 +4,8 @@ import 'package:ticket_booking/widgets/dotted_lines.dart';
 import '../util/app_layout.dart';
 
 class PlaneWidget extends StatelessWidget {
-  const PlaneWidget({super.key});
+  const PlaneWidget({super.key, Color color = Colors.white}) : _color = color;
+  final Color _color;
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +17,7 @@ class PlaneWidget extends StatelessWidget {
             padding: const EdgeInsets.all(3),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(20),
-              border: Border.all(width: 2.5, color: Colors.white),
+              border: Border.all(width: 2.5, color: _color),
             ),
           ),
           SizedBox(
@@ -25,12 +26,16 @@ class PlaneWidget extends StatelessWidget {
             child: Stack(
               alignment: Alignment.center,
               children: [
-                const DottedLines(width: 3, space: 6),
+                DottedLines(
+                  width: 3,
+                  space: 6,
+                  color: _color,
+                ),
                 Transform.rotate(
                   angle: 1.5,
-                  child: const Icon(
+                  child: Icon(
                     Icons.local_airport_rounded,
-                    color: Colors.white,
+                    color: _color,
                   ),
                 ),
               ],
@@ -40,7 +45,7 @@ class PlaneWidget extends StatelessWidget {
             padding: const EdgeInsets.all(3),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(20),
-              border: Border.all(width: 2.5, color: Colors.white),
+              border: Border.all(width: 2.5, color: _color),
             ),
           )
         ],

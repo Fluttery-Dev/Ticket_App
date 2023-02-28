@@ -4,7 +4,12 @@ import '../util/app_layout.dart';
 class DottedLines extends StatelessWidget {
   final double width;
   final double space;
-  const DottedLines({super.key, required this.width, required this.space});
+  final Color color;
+  const DottedLines(
+      {super.key,
+      required this.width,
+      required this.space,
+      this.color = Colors.white});
 
   @override
   Widget build(BuildContext context) {
@@ -19,8 +24,7 @@ class DottedLines extends StatelessWidget {
             (index) => SizedBox(
               height: AppLayout.getHeight(1),
               width: AppLayout.getWidth(width),
-              child: const DecoratedBox(
-                  decoration: BoxDecoration(color: Colors.white)),
+              child: DecoratedBox(decoration: BoxDecoration(color: color)),
             ),
           ),
         );
