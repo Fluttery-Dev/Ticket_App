@@ -21,8 +21,8 @@ class HotelView extends StatelessWidget {
         ],
       ),
       height: AppLayout.getHeight(350),
-      margin: EdgeInsets.only(
-          left: AppLayout.getWidth(17), top: AppLayout.getHeight(5)),
+      // margin: EdgeInsets.only(
+      //     left: AppLayout.getWidth(17), top: AppLayout.getHeight(5)),
       width: AppLayout.getWidth(size.width) * 0.6,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,

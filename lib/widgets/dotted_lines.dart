@@ -5,10 +5,12 @@ class DottedLines extends StatelessWidget {
   final double width;
   final double space;
   final Color color;
+  final double height;
   const DottedLines(
       {super.key,
       required this.width,
       required this.space,
+      this.height = 1,
       this.color = Colors.white});
 
   @override
@@ -20,9 +22,9 @@ class DottedLines extends StatelessWidget {
           mainAxisSize: MainAxisSize.max,
           direction: Axis.horizontal,
           children: List.generate(
-            (constraint.constrainWidth() / space).floor(),
+            (constraint.constrainWidth() / (width + space)).floor(),
             (index) => SizedBox(
-              height: AppLayout.getHeight(1),
+              height: AppLayout.getHeight(height),
               width: AppLayout.getWidth(width),
               child: DecoratedBox(decoration: BoxDecoration(color: color)),
             ),

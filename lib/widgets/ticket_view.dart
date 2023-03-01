@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:gap/gap.dart';
 import 'package:ticket_booking/util/app_layout.dart';
 import 'package:ticket_booking/util/app_styles.dart';
+import 'package:ticket_booking/widgets/column_text.dart';
 import 'package:ticket_booking/widgets/plane_widget.dart';
 import './dotted_lines.dart';
 
@@ -14,11 +14,11 @@ class TicketView extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       width: AppLayout.getScreenWidth() * 0.85,
-      height: AppLayout.getHeight(200),
+      // height: AppLayout.getHeight(200),
       child: Column(
         children: [
           Container(
-            margin: EdgeInsets.only(left: AppLayout.getWidth(20)),
+            // margin: EdgeInsets.only(left: AppLayout.getWidth(20)),
             padding: EdgeInsets.symmetric(
                 vertical: AppLayout.getHeight(20),
                 horizontal: AppLayout.getWidth(15)),
@@ -29,70 +29,48 @@ class TicketView extends StatelessWidget {
                 topRight: Radius.circular(20),
               ),
             ),
-            child: Column(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Flexible(
-                      flex: 1,
-                      child: Text(
-                        ticket['from']['code'],
-                        style: isColored
-                            ? Styles.headLineStyle3
-                                .copyWith(color: Colors.white)
-                            : Styles.headLineStyle3
-                                .copyWith(color: Colors.black),
-                      ),
-                    ),
-                    Flexible(
-                        flex: 1,
-                        child: PlaneWidget(
-                            color:
-                                isColored ? Colors.white : Color(0xFF8ACCF7)),
-                        fit: FlexFit.tight),
-                    Flexible(
-                      flex: 1,
-                      child: Text(
-                        ticket['to']['code'],
-                        style: isColored
-                            ? Styles.headLineStyle3
-                                .copyWith(color: Colors.white)
-                            : Styles.headLineStyle3
-                                .copyWith(color: Colors.black),
-                      ),
-                    ),
-                  ],
+                Expanded(
+                  child: ColumnText(
+                    upperText: ticket['from']['code'],
+                    lowerText: ticket['from']['name'],
+                    alignment: CrossAxisAlignment.start,
+                    isColored: isColored,
+                  ),
                 ),
-                const Gap(5),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      ticket['from']['name'],
-                      style: isColored
-                          ? Styles.headLineStyle4.copyWith(color: Colors.white)
-                          : Styles.headLineStyle4,
-                    ),
-                    Text(
-                      ticket['flying_time'],
-                      style: isColored
-                          ? Styles.headLineStyle3.copyWith(color: Colors.white)
-                          : Styles.headLineStyle3,
-                    ),
-                    Text(
-                      ticket['to']['name'],
-                      style: isColored
-                          ? Styles.headLineStyle4.copyWith(color: Colors.white)
-                          : Styles.headLineStyle4,
-                    ),
-                  ],
-                )
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      PlaneWidget(
+                        color: isColored ? Colors.white : Color(0xFF8ACCF7),
+                      ),
+                      Text(
+                        ticket['flying_time'],
+                        style: isColored
+                            ? Styles.headLineStyle3
+                                .copyWith(color: Colors.white)
+                            : Styles.headLineStyle3,
+                      ),
+                    ],
+                  ),
+                ),
+                Expanded(
+                  child: ColumnText(
+                    upperText: ticket['to']['code'],
+                    lowerText: ticket['to']['name'],
+                    alignment: CrossAxisAlignment.end,
+                    isColored: isColored,
+                  ),
+                ),
               ],
             ),
           ),
           Container(
-            margin: EdgeInsets.only(left: AppLayout.getWidth(20)),
+            //   margin: EdgeInsets.only(left: AppLayout.getWidth(20)),
             color: isColored ? const Color(0xFFF37B67) : Colors.white,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -114,9 +92,10 @@ class TicketView extends StatelessWidget {
                   child: Padding(
                     padding: const EdgeInsets.all(12),
                     child: DottedLines(
-                      width: 5,
-                      space: 15,
-                      color: isColored ? Colors.white : Colors.grey,
+                      width: 7,
+                      space: 10,
+                      height: 2,
+                      color: isColored ? Colors.white : Colors.grey.shade200,
                     ),
                   ),
                 ),
@@ -137,73 +116,38 @@ class TicketView extends StatelessWidget {
             ),
           ),
           Container(
-            margin: EdgeInsets.only(left: AppLayout.getWidth(20)),
+            //  margin: EdgeInsets.only(left: AppLayout.getWidth(20)),
             padding: EdgeInsets.symmetric(
                 vertical: AppLayout.getHeight(20),
                 horizontal: AppLayout.getWidth(15)),
             decoration: BoxDecoration(
               color: isColored ? Styles.orangeColor : Colors.white,
-              borderRadius: const BorderRadius.only(
-                bottomLeft: Radius.circular(20),
-                bottomRight: Radius.circular(20),
-              ),
+              borderRadius: isColored
+                  ? const BorderRadius.only(
+                      bottomLeft: Radius.circular(20),
+                      bottomRight: Radius.circular(20),
+                    )
+                  : null,
             ),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      ticket['date'],
-                      style: isColored
-                          ? Styles.headLineStyle3.copyWith(color: Colors.white)
-                          : Styles.headLineStyle3.copyWith(color: Colors.black),
-                    ),
-                    Gap(AppLayout.getHeight(5)),
-                    Text(
-                      "Date",
-                      style: isColored
-                          ? Styles.headLineStyle4.copyWith(color: Colors.white)
-                          : Styles.headLineStyle4,
-                    ),
-                  ],
+                ColumnText(
+                  upperText: ticket['date'],
+                  lowerText: "Date",
+                  isColored: isColored,
+                  alignment: CrossAxisAlignment.start,
                 ),
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      ticket['departure_time'],
-                      style: isColored
-                          ? Styles.headLineStyle3.copyWith(color: Colors.white)
-                          : Styles.headLineStyle3.copyWith(color: Colors.black),
-                    ),
-                    Gap(AppLayout.getHeight(10)),
-                    Text(
-                      "Departure Time",
-                      style: isColored
-                          ? Styles.headLineStyle4.copyWith(color: Colors.white)
-                          : Styles.headLineStyle4,
-                    ),
-                  ],
-                ),
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      ticket['number'].toString(),
-                      style: isColored
-                          ? Styles.headLineStyle3.copyWith(color: Colors.white)
-                          : Styles.headLineStyle3.copyWith(color: Colors.black),
-                    ),
-                    Gap(AppLayout.getHeight(10)),
-                    Text(
-                      "Number",
-                      style: isColored
-                          ? Styles.headLineStyle4.copyWith(color: Colors.white)
-                          : Styles.headLineStyle4,
-                    ),
-                  ],
+                ColumnText(
+                    upperText: ticket['departure_time'],
+                    lowerText: "Departure Time",
+                    isColored: isColored,
+                    alignment: CrossAxisAlignment.center),
+                ColumnText(
+                  upperText: ticket['number'].toString(),
+                  lowerText: "Number",
+                  alignment: CrossAxisAlignment.end,
+                  isColored: isColored,
                 ),
               ],
             ),

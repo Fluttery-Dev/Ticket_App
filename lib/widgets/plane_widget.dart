@@ -11,7 +11,7 @@ class PlaneWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return LayoutBuilder(builder: (context, constraint) {
       return Row(
-        mainAxisSize: MainAxisSize.max,
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Container(
             padding: const EdgeInsets.all(3),
@@ -28,7 +28,7 @@ class PlaneWidget extends StatelessWidget {
               children: [
                 DottedLines(
                   width: 3,
-                  space: 6,
+                  space: 3,
                   color: _color,
                 ),
                 Transform.rotate(
