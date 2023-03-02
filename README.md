@@ -7,7 +7,7 @@ This App will help you monitor your
 I've Just Build The UI of the project, building most of the components myself. I built this project while learning practicing How to make advance Ui.
 
 below is an amazing video that accompanied my journey
-- [DbesTech] (https://www.youtube.com/watch?v=71AsYo2q_0Y&t=22587s&ab_channel=dbestech)
+- ![DbesTech](https://www.youtube.com/watch?v=71AsYo2q_0Y&t=22587s&ab_channel=dbestech)
 
 The widgets I built in this tutorial
 
@@ -50,7 +50,7 @@ The widgets I built in this tutorial
 
 
 
-- [Download App] (https://github.com/Fluttery-Dev/Ticket_App/blob/main/app-release.apk)
+- ![Download App](https://github.com/Fluttery-Dev/Ticket_App/raw/main/app-release.apk)
 
 For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials,
