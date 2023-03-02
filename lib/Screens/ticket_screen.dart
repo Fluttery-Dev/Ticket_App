@@ -6,6 +6,7 @@ import 'package:ticket_booking/util/app_styles.dart';
 import 'package:ticket_booking/util/app_util.dart';
 import 'package:ticket_booking/widgets/column_text.dart';
 import 'package:ticket_booking/widgets/dotted_lines.dart';
+import 'package:ticket_booking/widgets/spaced_column_text.dart';
 import 'package:ticket_booking/widgets/tab_button.dart';
 import 'package:ticket_booking/widgets/ticket_view.dart';
 
@@ -53,22 +54,11 @@ class TicketScreen extends StatelessWidget {
             ),
             child: Column(
               children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: const [
-                    ColumnText(
-                      upperText: 'FlutterDB',
-                      lowerText: 'Passenger',
-                      alignment: CrossAxisAlignment.start,
-                      isColored: false,
-                    ),
-                    ColumnText(
-                      upperText: '5221478566',
-                      lowerText: 'passport',
-                      alignment: CrossAxisAlignment.end,
-                      isColored: false,
-                    ),
-                  ],
+                const SpacedColumnText(
+                  u1: 'FlutterDB',
+                  l1: 'Passenger',
+                  u2: '5221478566',
+                  l2: 'passport',
                 ),
                 Gap(AppLayout.getWidth(20)),
                 DottedLines(
@@ -78,22 +68,11 @@ class TicketScreen extends StatelessWidget {
                   color: Colors.grey.shade200,
                 ),
                 Gap(AppLayout.getWidth(20)),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: const [
-                    ColumnText(
-                      upperText: '0055 444 77147',
-                      lowerText: 'Number of E-ticket',
-                      alignment: CrossAxisAlignment.start,
-                      isColored: false,
-                    ),
-                    ColumnText(
-                      upperText: 'B2SG28',
-                      lowerText: 'Booking code',
-                      alignment: CrossAxisAlignment.end,
-                      isColored: false,
-                    ),
-                  ],
+                const SpacedColumnText(
+                  u1: '0055 444 77147',
+                  l1: 'Number of E-ticket',
+                  u2: 'B2SG28',
+                  l2: 'Booking code',
                 ),
                 Gap(AppLayout.getWidth(20)),
                 DottedLines(

@@ -93,11 +93,12 @@ class SearchScreen extends StatelessWidget {
             AppLayout.getHeight(10),
           ),
           Container(
+            margin: const EdgeInsets.only(bottom: 20),
             height: AppLayout.getHeight(400),
             child: Row(
               children: [
                 Container(
-                  height: AppLayout.getHeight(380),
+                  //height: AppLayout.getHeight(380),
                   width: AppLayout.getScreenWidth() * 0.45,
                   padding: const EdgeInsets.all(15),
                   decoration: BoxDecoration(
@@ -137,7 +138,7 @@ class SearchScreen extends StatelessWidget {
                       children: [
                         Container(
                           width: AppLayout.getScreenWidth() * 0.4,
-                          height: AppLayout.getHeight(180),
+                          // height: AppLayout.getHeight(180),
                           padding: EdgeInsets.symmetric(
                             vertical: AppLayout.getHeight(20),
                             horizontal: AppLayout.getHeight(15),
@@ -157,7 +158,7 @@ class SearchScreen extends StatelessWidget {
                                     .copyWith(color: Colors.white),
                               ),
                               Gap(
-                                AppLayout.getHeight(10),
+                                AppLayout.getHeight(5),
                               ),
                               Text(
                                 "Take the survey about our services and Products.",

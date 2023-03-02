@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:ticket_booking/util/app_layout.dart';
 import 'package:ticket_booking/util/app_styles.dart';
+import 'package:ticket_booking/widgets/spaced_column_text.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
@@ -88,7 +89,7 @@ class ProfileScreen extends StatelessWidget {
           Stack(
             children: [
               Container(
-                height: 100,
+                height: AppLayout.getHeight(90),
                 decoration: BoxDecoration(
                     color: Styles.primaryColor,
                     borderRadius: BorderRadius.circular(20)),
@@ -102,13 +103,110 @@ class ProfileScreen extends StatelessWidget {
                     shape: BoxShape.circle,
                     border: Border.all(
                       width: 20,
-                      color: const Color(0xFF189999),
+                      color: const Color(0xFF264CD2),
                     ),
                     color: Colors.transparent,
                   ),
                 ),
               ),
+              Container(
+                padding: const EdgeInsets.all(20),
+                child: Row(
+                  children: [
+                    CircleAvatar(
+                      backgroundColor: Colors.white,
+                      radius: 25,
+                      child: Icon(
+                        FluentSystemIcons.ic_fluent_lightbulb_filament_filled,
+                        color: Styles.primaryColor,
+                        size: 27,
+                      ),
+                    ),
+                    Gap(AppLayout.getWidth(10)),
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          "You've Got a new Reward",
+                          style: Styles.headLineStyle2
+                              .copyWith(color: Colors.white),
+                        ),
+                        Text(
+                          "You have 150 Flights this year",
+                          style: Styles.headLineStyle3.copyWith(
+                              color: const Color(0xFFD6E5FD), fontSize: 14),
+                        ),
+                      ],
+                    )
+                  ],
+                ),
+              )
             ],
+          ),
+          Gap(AppLayout.getHeight(20)),
+          Text(
+            "Accumulated Miles",
+            style: Styles.headLineStyle2,
+          ),
+          Container(
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+            margin: const EdgeInsets.all(10),
+            decoration: BoxDecoration(
+                color: Color(0xFFFFFEFE),
+                borderRadius: BorderRadius.circular(20)),
+            child: Column(
+              children: [
+                Text(
+                  "192802",
+                  style: Styles.headLineStyle1.copyWith(fontSize: 40),
+                ),
+                Gap(AppLayout.getHeight(15)),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      "Miles Aquired",
+                      style: Styles.headLineStyle3,
+                    ),
+                    Text(
+                      "23 May 2021",
+                      style: Styles.headLineStyle3,
+                    ),
+                  ],
+                ),
+                Gap(AppLayout.getHeight(20)),
+                const SpacedColumnText(
+                  u1: '23 042',
+                  l1: 'Miles',
+                  u2: 'Airline CO',
+                  l2: 'Recieved From',
+                ),
+                Gap(AppLayout.getHeight(20)),
+                const SpacedColumnText(
+                  u1: '24',
+                  l1: 'Miles',
+                  u2: 'Mc Donal\'s',
+                  l2: 'Recieved From',
+                ),
+                Gap(AppLayout.getHeight(20)),
+                const SpacedColumnText(
+                  u1: '53 340',
+                  l1: 'Miles',
+                  u2: 'Exuma',
+                  l2: 'Recieved From',
+                ),
+                Gap(AppLayout.getHeight(20)),
+                TextButton(
+                  onPressed: () {},
+                  child: Text(
+                    "How to get More Miles",
+                    style: Styles.headLineStyle3
+                        .copyWith(color: Styles.primaryColor),
+                  ),
+                ),
+              ],
+            ),
           )
         ],
       ),
